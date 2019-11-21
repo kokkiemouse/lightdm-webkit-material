@@ -14,12 +14,12 @@
                 <!-- Login card -->
                 <md-card id="login" ng-class="animation" ng-style="animationDuration" ng-controller="loginController" ng-switch-default>
                     <md-card-content>
-                        <div class="header">Welcome back!</div>
+                        <div class="header">ウ ン チ ー コ ン グ って知ってる?</div>
                         <div class="content">
                             <img class="profile-img" ng-src="{{getUserImage(user)}}" fallback-src="assets/ui/avatar.png"/> <!-- Replace src with {{getUserImage(user)}} for actual .face support -->
                             <form layout="column" layout-align="center stretch" ng-submit="signIn()" name="loginForm">
                                 <md-input-container>
-                                    <label>User</label>
+                                    <label>ユーザー</label>
                                     <md-select id="user" name="user" class="md-select" ng-model="user" required>
                                         <md-option ng-repeat="u in users" value="{{u.name}}">
                                             {{u.display_name}}
@@ -27,16 +27,16 @@
                                     </md-select>
                                 </md-input-container>
                                 <md-input-container>
-                                    <label><i class="fa fa-lock"></i> Password</label>
+                                    <label><i class="fa fa-lock"></i> パスワード</label>
                                     <input type="password" name="password" ng-model="password" id="pass" autofocus>
                                     <div ng-messages="loginForm.password.$error">
                                         <div ng-message="correct">
-                                            Incorrect password
+                                            パスワードが間違っていますw
                                         </div>
                                     </div>
                                 </md-input-container>
                                 <md-input-container>
-                                    <label>Session</label>
+                                    <label>セッション</label>
                                     <md-select id="session" name="session" ng-model="session" required>
                                         <md-option ng-repeat="s in sessions" value="{{s.key}}">
                                             {{s.name}}
@@ -52,7 +52,7 @@
 
                 <!-- Settings card -->
                 <md-card id="settings" ng-class="animation" ng-style="animationDuration" class="animate-switch" ng-switch-when="settings" ng-controller="settingsController">
-                    <div class="header">Settings</div>
+                    <div class="header">設定</div>
                     <md-card-content class="content">
                         <form layout="column" layout-align="center stretch" name="settingsForm">
                             <md-input-container>
@@ -65,9 +65,9 @@
                                 <label for="settings-backgroundEngine"><i class="fa fa-gears"></i> Background Engine</label>
                                 <md-select id="settings-background" name="backgroundEngine" ng-model="settings.backgroundEngine">
                                     <md-option value="trianglify">Trianglify</md-option>
-                                    <md-option value="particleground">Particleground</md-option>
-                                    <md-option value="random-image">Random Image</md-option>
-                                    <md-option value="image">Image</md-option>
+                                    <md-option value="particleground">パーティクル</md-option>
+                                    <md-option value="random-image">ランダムな画像</md-option>
+                                    <md-option value="image">画像</md-option>
                                 </md-select>
                                 <div class="hint" ng-if="settings.backgroundEngine == 'random-image'">Background images should be located in "/var/lib/AccountsService/wallpapers" in png or jpeg format.</div>
                                 <div class="hint" ng-if="settings.backgroundEngine == 'image'">Background image should be located at "/var/lib/AccountsService/wallpapers/lightdm-webkit.jpg" in jpeg format.</div>
@@ -86,10 +86,10 @@
                                 <md-select id="settings-background" ng-model="settings.background">
                                     <md-option value="random">Random (default)</md-option>
                                     <md-optgroup label="One-color">
-                                        <md-option value="Blues">Blue</md-option>
-                                        <md-option value="Purples">Purple</md-option>
-                                        <md-option value="Oranges">Orange</md-option>
-                                        <md-option value="Reds">Red</md-option>
+                                        <md-option value="Blues">青</md-option>
+                                        <md-option value="Purples">紫</md-option>
+                                        <md-option value="Oranges">橙</md-option>
+                                        <md-option value="Reds">赤</md-option>
                                     </md-optgroup>
                                     <md-optgroup label="Multiple colours">
                                         <md-option value="YlOrRd">Yellow-Orange-Red</md-option>
@@ -130,56 +130,58 @@
 
                 <!-- Shutdown dialog -->
                 <md-card id="shutdown-dialog" ng-class="animation" ng-style="animationDuration" ng-switch-when="shutdown">
-                    <div class="header">Shutdown</div>
+                    <div class="header">シャットダウン</div>
                     <md-card-content class="content">
-                        Do you really want to shutdown?
+                        シャットダウンしますか?
                     </md-card-content>
                     <md-card-actions layout="row" layout-align="space-around center">
-                        <md-button ng-click="$root.card = 'login'"><i class="fa fa-ban"></i> Cancel</md-button>
-                        <md-button onclick="lightdm.shutdown();"><i class="fa fa-power-off"></i> Shutdown</md-button>
+                        <md-button ng-click="$root.card = 'login'"><i class="fa fa-ban"></i> キャンセル</md-button>
+                        <md-button onclick="lightdm.shutdown();"><i class="fa fa-power-off"></i> シャットダウン</md-button>
                     </md-card-actions>
                 </md-card>
 
                 <!-- Restart dialog -->
                 <md-card id="restart-dialog" ng-class="animation" ng-style="animationDuration" ng-switch-when="restart">
-                    <div class="header">Restart</div>
+                    <div class="header">再起動</div>
                     <md-card-content class="content">
-                        Do you really want to restart?
+                        再起動しますか?
                     </md-card-content>
                     <md-card-actions layout="row" layout-align="space-around center">
-                        <md-button ng-click="$root.card = 'login'"><i class="fa fa-ban"></i> Cancel</md-button>
-                        <md-button onclick="lightdm.restart();"><i class="fa fa-refresh"></i> Restart</md-button>
+                        <md-button ng-click="$root.card = 'login'"><i class="fa fa-ban"></i> キャンセル</md-button>
+                        <md-button onclick="lightdm.restart();"><i class="fa fa-refresh"></i> 再起動</md-button>
                     </md-card-actions>
                 </md-card>
 
                 <!-- Suspend dialog -->
                 <md-card id="suspend-dialog" ng-class="animation" ng-style="animationDuration" ng-switch-when="suspend">
-                    <div class="header">Suspend</div>
+                    <div class="header">サスペンド</div>
                     <md-card-content class="content">
-                        Do you really want to suspend?
+                        サスペンドしますか?
                     </md-card-content>
                     <md-card-actions layout="row" layout-align="space-around center">
-                        <md-button ng-click="$root.card = 'login'"><i class="fa fa-ban"></i> Cancel</md-button>
-                        <md-button onclick="lightdm.suspend();"><i class="fa fa-power-off fa-rotate-90"></i> Suspend</md-button>
+                        <md-button ng-click="$root.card = 'login'"><i class="fa fa-ban"></i> キャンセル</md-button>
+                        <md-button onclick="lightdm.suspend();"><i class="fa fa-power-off fa-rotate-90"></i> サスペンド</md-button>
                     </md-card-actions>
                 </md-card>
 
                 <!-- Hibernate dialog -->
                 <md-card id="hibernate-dialog" ng-class="animation" ng-style="animationDuration" ng-switch-when="hibernate">
-                    <div class="header">Hibernate</div>
+                    <div class="header">ハイバネーション</div>
                     <md-card-content class="content">
-                        Do you really want to hibernate?
+                            ハイバネーションしますか?
                     </md-card-content>
                     <md-card-actions layout="row" layout-align="space-around center">
-                        <md-button ng-click="$root.card = 'login'"><i class="fa fa-ban"></i> Cancel</md-button>
-                        <md-button onclick="lightdm.hibernate();"><i class="fa fa-power-off "></i> Hibernate</md-button>
+                        <md-button ng-click="$root.card = 'login'"><i class="fa fa-ban"></i> キャンセル</md-button>
+                        <md-button onclick="lightdm.hibernate();"><i class="fa fa-power-off "></i> ハイバネーション</md-button>
                     </md-card-actions>
                 </md-card>
 
                 <!-- Help dialog -->
                 <md-card id="help-dialog" ng-class="animation" ng-style="animationDuration" ng-switch-when="help">
-                    <div class="header">Help</div>
+                    <div class="header">ヘルプ</div>
                     <md-card-content class="content">
+
+                        b>英語だけどいいのかなww/b>
                         <b>I found a bug/mistake? Where can I report it?</b>
                         <br/>
                         <small><i>https://github.com/artur9010/lightdm-webkit-material/issues</i></small>
@@ -200,20 +202,12 @@
             <!-- Footer -->
             <footer layout="row" align="center center">
                 <md-button ng-click="$root.card = 'shutdown'">
-                    <i class="fa fa-power-off"></i> Shutdown
+                    <i class="fa fa-power-off"></i> シャットダウン
                 </md-button>
                 <md-button ng-click="$root.card = 'restart'">
-                    <i class="fa fa-refresh"></i> Restart
+                    <i class="fa fa-refresh"></i> 再起動
                 </md-button>
-                <md-button ng-click="$root.card = 'suspend'">
-                    <i class="fa fa-power-off fa-rotate-90"></i> Suspend
-                </md-button>
-                <md-button ng-click="$root.card = 'hibernate'">
-                    <i class="fa fa-power-off"></i> Hibernate
-                </md-button>
-                <md-button ng-click="$root.card = 'settings'">
-                    <i class="fa fa-cog"></i> Settings
-                </md-button>
+                <md-button ng-click="$root.card =Settings
                 <span flex></span>
                 <div id="clock" layout="column" layout-align="center center">
                     <span ng-controller="timeController">{{clock| date:format}}</span>
